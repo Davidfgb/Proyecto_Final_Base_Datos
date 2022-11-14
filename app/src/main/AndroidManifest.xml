@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto_Base_Datos">
         <activity
+            android:name=".Nosotros"
+            android:exported="false" />
+        <activity
             android:name=".Registrase"
             android:exported="false" />
         <activity
