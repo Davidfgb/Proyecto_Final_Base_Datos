@@ -87,7 +87,7 @@
             android:id="@+id/editText_telefono_rg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FAF7F7"
+            android:backgroundTint="#03A9F4"
             android:ems="10"
             android:hint="Telefono"
             android:inputType="textPersonName"

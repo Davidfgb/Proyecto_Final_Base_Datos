@@ -30,9 +30,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        /*val boton_Menu = findViewById<Button>(R.id.bn_menu_am)
-        boton_Menu.setOnClickListener {
-            val intent = Intent(this,Menu::class.java)
+        val boton_menu = findViewById<Button>(R.id.bn_menu_am)
+        boton_menu.setOnClickListener {
+            val intent = Intent(this,Nosotros::class.java)
+            startActivity(intent)
+        }
+
+
+       /* val boton_pagina= findViewById<Button>(R.id.bn_entrar_am)
+        boton_pagina.setOnClickListener {
+            val intent = Intent(this,Pagina_Principal::class.java)
             startActivity(intent)
         }*/
 
@@ -53,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d(ContentValues.TAG, "signInWithCustomToken:success")
                                 //updateUI(user)
-                                val intent = Intent(this, menu_principal::class.java)
+                                val intent = Intent(this, Pagina_Principal::class.java)
                                 startActivity(intent)
                             } else {
                                 // If sign in fails, display a message to the user.
