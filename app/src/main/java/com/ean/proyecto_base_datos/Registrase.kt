@@ -20,6 +20,7 @@ class Registrase : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth;
     val db = Firebase.firestore
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registrase)
@@ -56,6 +57,7 @@ class Registrase : AppCompatActivity() {
                         auth.createUserWithEmailAndPassword(correo_r,pasword_r)
                             .addOnCompleteListener(this) { task ->
                                 if (task.isSuccessful) {
+
                                     // Sign in success, update UI with the signed-in user's information
                                     Toast.makeText(baseContext, "Usuario Creado.",
                                         Toast.LENGTH_SHORT).show()

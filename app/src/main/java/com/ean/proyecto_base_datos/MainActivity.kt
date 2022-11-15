@@ -60,7 +60,9 @@ class MainActivity : AppCompatActivity() {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d(ContentValues.TAG, "signInWithCustomToken:success")
                                 //updateUI(user)
+
                                 val intent = Intent(this, Pagina_Principal::class.java)
+                                intent.putExtra("correo", correo_r.text.toString())
                                 startActivity(intent)
                             } else {
                                 // If sign in fails, display a message to the user.
