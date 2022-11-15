@@ -25,7 +25,10 @@ class Ingreso_Info : AppCompatActivity() {
 
 
         val boton_guardar = findViewById<Button>(R.id.bn_ingr_guardar)
-        val plastico = findViewById<TextView>(R.id.editTex_ingr_info_plastico)
+        val inertes = findViewById<TextView>(R.id.editTex_ingre_info_inertes)
+        val urbanos = findViewById<TextView>(R.id.editText_ingr_info_urbanos)
+        val peligrosos = findViewById<TextView>(R.id.editText_ingr_info_peligrosos)
+        val otros = findViewById<TextView>(R.id.editText_ingr_info_otros)
 
         var id = 0
 
@@ -35,20 +38,20 @@ class Ingreso_Info : AppCompatActivity() {
 
 
 
-
-
-
-
-
-
         boton_guardar.setOnClickListener {
             try {
-                val desecho_plastico = plastico.text.toString()
-                if (desecho_plastico.isEmpty()) {
+                val desecho_inertes = inertes.text.toString()
+                val desecho_urbanos = urbanos.text.toString()
+                val desecho_peligrosos = peligrosos.text.toString()
+                val desecho_otros = otros.text.toString()
+                if (desecho_inertes.isEmpty() || desecho_peligrosos.isEmpty() || desecho_urbanos.isEmpty() || desecho_otros.isEmpty()) {
                     Toast.makeText(baseContext, "Campos vacios", Toast.LENGTH_SHORT).show()
                 } else {
                     val desechos = hashMapOf(
-                        "Desecho Plastico" to plastico.text.toString()
+                        "Desechos Inertes" to inertes.text.toString()
+                        , "Desechos Urbanos" to urbanos.text.toString()
+                        , "Desechos Peligrosos" to peligrosos.text.toString()
+                        , "Otros" to otros.text.toString()
                     )
                     db.collection("desechos").document(id_gmail.toString()).set(desechos)
                         .addOnSuccessListener {

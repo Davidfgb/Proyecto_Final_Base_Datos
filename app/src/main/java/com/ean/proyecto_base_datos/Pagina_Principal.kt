@@ -19,7 +19,6 @@ class Pagina_Principal : AppCompatActivity() {
             val intent = Intent(this,Ingreso_Info::class.java)
             intent.putExtra("correo", id_correo)
             startActivity(intent)
-
         }
 
 
