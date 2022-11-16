@@ -10,7 +10,8 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class Ingreso_Info : AppCompatActivity() {
@@ -32,6 +33,15 @@ class Ingreso_Info : AppCompatActivity() {
         val otros = findViewById<TextView>(R.id.editText_ingr_info_otros)
         val mes = findViewById<TextView>(R.id.editText_ingr_info_mes)
         val año = findViewById<TextView>(R.id.editText_ingr_info_año)
+
+
+
+        val sdf = SimpleDateFormat("M/yyyy")
+        val currentDate = sdf.format(Date())
+
+
+
+
 
 
 
@@ -73,7 +83,7 @@ class Ingreso_Info : AppCompatActivity() {
                         , "Desechos Peligrosos" to peligrosos.text.toString()
                         , "Otros" to otros.text.toString()
                     )
-                    db.collection(id).document(año_desecho).set(desechos)
+                    db.collection(id).document(currentDate).set(desechos)
                         .addOnSuccessListener {
                             Log.d(
                                 ContentValues.TAG,

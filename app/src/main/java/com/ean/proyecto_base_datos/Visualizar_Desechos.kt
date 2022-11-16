@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -25,15 +26,19 @@ class Visualizar_Desechos : AppCompatActivity() {
 
 
 
+
         val collect = id_gmail.toString()
         val documento = año_desecho.toString()
 
+        Toast.makeText(baseContext, collect, Toast.LENGTH_SHORT).show()
 
 
         val total = findViewById<TextView>(R.id.editText_visu_total)
 
+        //total.setText(documento)
+
         
-        val docRef = db.collection(collect).document(documento)
+        /*val docRef = db.collection(collect).document(documento)
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null) {
@@ -45,7 +50,7 @@ class Visualizar_Desechos : AppCompatActivity() {
             }
             .addOnFailureListener { exception ->
                 Log.d(ContentValues.TAG, "get failed with ", exception)
-            }
+            }*/
 
 
 
