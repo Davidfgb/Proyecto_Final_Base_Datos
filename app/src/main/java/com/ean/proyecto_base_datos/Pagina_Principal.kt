@@ -23,20 +23,24 @@ class Pagina_Principal : AppCompatActivity() {
 
 
 
-
-        val boton_ingresar_info = findViewById<Button>(R.id.bn_pg_ingreso_info)
-        boton_ingresar_info.setOnClickListener {
-            val intent = Intent(this,Ingreso_Info::class.java)
-            intent.putExtra("correo", id_correo)
-            startActivity(intent)
-        }
-
         val boton_visualizar_desechos = findViewById<Button>(R.id.bn_pg_vizual_desechos)
         boton_visualizar_desechos.setOnClickListener {
             val intent = Intent(this,Visualizar_Desechos::class.java)
             intent.putExtra("correo", id_correo)
             intent.putExtra("document", año_desecho)
             intent.putExtra("total_desechos", total_desechos)
+            startActivity(intent)
+        }
+        val boton_ingresar_Metas = findViewById<Button>(R.id.bn_pg_metas)
+        boton_ingresar_Metas.setOnClickListener {
+            val intent = Intent(this,Metas_desechos::class.java)
+            intent.putExtra("correo", id_correo)
+            startActivity(intent)
+        }
+        val boton_ingresar_info = findViewById<Button>(R.id.bn_pg_ingreso_info)
+        boton_ingresar_info.setOnClickListener {
+            val intent = Intent(this,Ingreso_Info::class.java)
+            intent.putExtra("correo", id_correo)
             startActivity(intent)
         }
 

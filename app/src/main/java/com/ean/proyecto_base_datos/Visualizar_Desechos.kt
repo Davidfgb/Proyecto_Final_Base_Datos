@@ -9,6 +9,8 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.text.SimpleDateFormat
+import java.util.*
 
 class Visualizar_Desechos : AppCompatActivity() {
 
@@ -21,14 +23,17 @@ class Visualizar_Desechos : AppCompatActivity() {
         val bundle = intent.extras
         val id_gmail = bundle?.getString("correo")
 
-        val bundle2 = intent.extras
-        val año_desecho = bundle2?.getString("document")
+
 
 
 
 
         val collect = id_gmail.toString()
-        val documento = año_desecho.toString()
+
+
+        val sdf = SimpleDateFormat("M/yyyy")
+        val currentDate = sdf.format(Date())
+
 
         Toast.makeText(baseContext, collect, Toast.LENGTH_SHORT).show()
 
@@ -38,7 +43,7 @@ class Visualizar_Desechos : AppCompatActivity() {
         //total.setText(documento)
 
         
-        /*val docRef = db.collection(collect).document(documento)
+        val docRef = db.collection(collect).document(currentDate)
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null) {
@@ -50,7 +55,7 @@ class Visualizar_Desechos : AppCompatActivity() {
             }
             .addOnFailureListener { exception ->
                 Log.d(ContentValues.TAG, "get failed with ", exception)
-            }*/
+            }
 
 
 
