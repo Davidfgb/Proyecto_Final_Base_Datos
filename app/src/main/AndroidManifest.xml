@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto_Base_Datos">
         <activity
+            android:name=".Visualizar_Desechos"
+            android:exported="false" />
+        <activity
             android:name=".Ingreso_Info"
             android:exported="false" />
         <activity
