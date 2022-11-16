@@ -24,26 +24,18 @@ class Ingreso_Info : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ingreso_info)
 
-
         val boton_guardar = findViewById<Button>(R.id.bn_ingr_guardar)
         val boton_volver = findViewById<Button>(R.id.bn_ingr_volver)
         val inertes = findViewById<TextView>(R.id.editTex_ingre_info_inertes)
         val urbanos = findViewById<TextView>(R.id.editText_ingr_info_urbanos)
         val peligrosos = findViewById<TextView>(R.id.editText_ingr_info_peligrosos)
         val otros = findViewById<TextView>(R.id.editText_ingr_info_otros)
-        val mes = findViewById<TextView>(R.id.editText_ingr_info_mes)
 
+        val sdf = SimpleDateFormat("M")
+        val mes_id = sdf.format(Date())
 
-
-
-        val sdf = SimpleDateFormat("yyyy")
-        val fecha_a = sdf.format(Date())
-
-
-
-
-
-
+        val aaa = SimpleDateFormat("yyyy")
+        val fecha_a = aaa.format(Date())
 
         val bundle = intent.extras
         val id_gmail = bundle?.getString("correo")
@@ -51,12 +43,10 @@ class Ingreso_Info : AppCompatActivity() {
         val desechos_list =  arrayListOf<Pair<String,Int>>()
         val id = id_gmail.toString()
 
-       /* boton_volver.setOnClickListener {
-            val año_desecho = año.text.toString()
+        boton_volver.setOnClickListener {
             val intent = Intent(this,Pagina_Principal::class.java)
-            intent.putExtra("document",año_desecho)
             startActivity(intent)
-        }*/
+        }
 
         boton_guardar.setOnClickListener {
             try {
@@ -65,8 +55,6 @@ class Ingreso_Info : AppCompatActivity() {
                 val desecho_urbanos = urbanos.text.toString()
                 val desecho_peligrosos = peligrosos.text.toString()
                 val desecho_otros = otros.text.toString()
-                val mes_desecho = mes.text.toString()
-
 
 
                 if (desecho_inertes.isEmpty() || desecho_peligrosos.isEmpty() || desecho_urbanos.isEmpty() || desecho_otros.isEmpty()) {
@@ -79,7 +67,7 @@ class Ingreso_Info : AppCompatActivity() {
                         , "Desechos Peligrosos" to peligrosos.text.toString()
                         , "Otros" to otros.text.toString()
                     )
-                    db.collection("desechos").document(id).collection(fecha_a).document(mes_desecho).set(desechos)
+                    db.collection("desechos").document(id).collection(fecha_a).document(mes_id).set(desechos)
                         .addOnSuccessListener {
                             Log.d(
                                 ContentValues.TAG,
