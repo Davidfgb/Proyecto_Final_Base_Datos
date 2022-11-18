@@ -34,38 +34,54 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="231dp"
-            android:orientation="horizontal"></LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="39dp"
-            android:orientation="horizontal"></LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="118dp"
+            android:layout_height="187dp"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView9"
-                android:layout_width="115dp"
-                android:layout_height="match_parent"
-                android:text="Cifra Total :"
-                android:textColor="#F6F1F1"
-                android:textSize="20sp" />
+                android:id="@+id/text_visu_motrar_datos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#F8F6F6"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-            <EditText
-                android:id="@+id/editText_visu_total"
-                android:layout_width="344dp"
-                android:layout_height="90dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="84dp"
+            android:orientation="horizontal"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:orientation="horizontal"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bn_visu_mostrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#03A9F4"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="#FBFBFB"
-                android:textSize="34sp" />
+                android:text="Vizualizar" />
 
+            <Button
+                android:id="@+id/bn_visu_volver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#03A9F4"
+                android:text="Button" />
         </LinearLayout>
 
     </LinearLayout>

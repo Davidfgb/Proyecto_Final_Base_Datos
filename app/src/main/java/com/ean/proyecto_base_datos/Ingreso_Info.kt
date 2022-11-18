@@ -32,10 +32,12 @@ class Ingreso_Info : AppCompatActivity() {
         val otros = findViewById<TextView>(R.id.editText_ingr_info_otros)
 
         val sdf = SimpleDateFormat("M")
-        val mes_id = sdf.format(Date())
+        val mes_fecha = sdf.format(Date())
+        val mes_id = mes_fecha.toString()
 
         val aaa = SimpleDateFormat("yyyy")
         val fecha_a = aaa.format(Date())
+        val fecha_id = fecha_a.toString()
 
         val bundle = intent.extras
         val id_gmail = bundle?.getString("correo")
@@ -67,7 +69,7 @@ class Ingreso_Info : AppCompatActivity() {
                         , "Desechos Peligrosos" to peligrosos.text.toString()
                         , "Otros" to otros.text.toString()
                     )
-                    db.collection("desechos").document(id).collection(fecha_a).document(mes_id).set(desechos)
+                    db.collection("desechos").document(id).collection(fecha_id).document(mes_id).set(desechos)
                         .addOnSuccessListener {
                             Log.d(
                                 ContentValues.TAG,
