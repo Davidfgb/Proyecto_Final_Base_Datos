@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Total Desechos"
+                android:text="Vizualizar Desechos"
                 android:textColor="#F6F0F0"
                 android:textSize="48sp" />
 
@@ -34,32 +34,75 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="187dp"
+            android:layout_height="217dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/text_visu_motrar_datos"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="#F8F6F6"
+                android:textColor="#F8F5F5"
                 android:textSize="24sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="84dp"
-            android:orientation="horizontal"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:orientation="horizontal"/>
+            android:layout_height="25dp"
+            android:orientation="horizontal"></LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ingrese el año y el mes de los datos que desea visualizar"
+                android:textColor="#03A9F4"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editText_visu_gmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#03A9F4"
+            android:ems="10"
+            android:hint="Correo"
+            android:inputType="textEmailAddress"
+            android:textColor="#03A9F4"
+            android:textColorHint="#03A9F4" />
+
+        <EditText
+            android:id="@+id/editText_visu_fecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#03A9F4"
+            android:ems="10"
+            android:hint="Año"
+            android:inputType="textPersonName"
+            android:textColor="#03A9F4"
+            android:textColorHint="#03A9F4" />
+
+        <EditText
+            android:id="@+id/editText_visu_mes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#03A9F4"
+            android:ems="10"
+            android:hint="Mes"
+            android:inputType="textPersonName"
+            android:textColor="#03A9F4"
+            android:textColorHint="#03A9F4" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
             android:orientation="horizontal"></LinearLayout>
 
         <LinearLayout
@@ -69,7 +112,7 @@
 
             <Button
                 android:id="@+id/bn_visu_mostrar"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#03A9F4"
@@ -81,8 +124,15 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#03A9F4"
-                android:text="Button" />
+                android:text="Volver" />
         </LinearLayout>
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
 
     </LinearLayout>
 

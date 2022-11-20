@@ -70,7 +70,7 @@ class Registrase : AppCompatActivity() {
                                         "telefono" to phone.text.toString(),
 
                                         )
-                                    db.collection("usuario").document(nombre.text.toString())
+                                    db.collection("usuario").document(txt_correo.text.toString())
                                         .set(usuario)
                                         .addOnSuccessListener { Log.d(ContentValues.TAG, "DocumentSnapshot successfully written!") }
                                         .addOnFailureListener { e -> Log.w(ContentValues.TAG, "Error writing document", e) }

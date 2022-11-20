@@ -22,34 +22,24 @@ class Visualizar_Desechos : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_visualizar_desechos)
 
-        val bundle = intent.extras
-        val id_gmail = bundle?.getString("correo")
-        val mostrar = findViewById<Button>(R.id.bn_visu_mostrar)
+        val gmail = findViewById<TextView>(R.id.editText_visu_gmail)
+        val boton_mostrar = findViewById<Button>(R.id.bn_visu_mostrar)
         val volver = findViewById<Button>(R.id.bn_visu_volver)
+        val fecha = findViewById<TextView>(R.id.editText_visu_fecha)
+        val mes = findViewById<TextView>(R.id.editText_visu_mes)
+
+        val gmail_id = gmail.text.toString()
+        val fecha_id = fecha.text.toString()
+        val mes_id = mes.text.toString()
 
         val mostrar_datos = findViewById<TextView>(R.id.text_visu_motrar_datos)
 
 
-        val id = id_gmail.toString()
 
-        val datos = mostrar_datos.text.toString()
-
-        val sdf = SimpleDateFormat("M")
-        val mes_i = sdf.format(Date())
-
-        val aaa = SimpleDateFormat("yyyy")
-        val fecha_id = aaa.format(Date())
-
-
-
-        mostrar.setOnClickListener {
+        boton_mostrar.setOnClickListener {
             try {
-                // Create a reference to the cities collection
-                val citiesRef = db.collection("desechos")
-                // Create a query against the collection.
-                
-
-                val docRef = db.collection("desechos").document(id).collection(fecha_id).document(mes_i)
+               // db.collection("desechos").document(id_gmail).collection(id_fecha).document(id_mes).set(desechos)
+                val docRef = db.collection("davidfgalvis8@gmail.com").document("11")
                 docRef.get()
                     .addOnSuccessListener { document ->
                         if (document != null) {
@@ -62,18 +52,15 @@ class Visualizar_Desechos : AppCompatActivity() {
                     .addOnFailureListener { exception ->
                         Log.d(ContentValues.TAG, "get failed with ", exception)
                     }
+            }catch (e:Exception){
+                Toast.makeText(baseContext, "No se pudo mostrar datos", Toast.LENGTH_SHORT).show()
             }
-            catch (e: Exception) {
-                Toast.makeText(baseContext, "Ese mes o año todavia no a sido ingresado", Toast.LENGTH_SHORT).show()
-
-            }
-
+        }
         }
 
 
 
 
-
-
-    }
 }
+
+
