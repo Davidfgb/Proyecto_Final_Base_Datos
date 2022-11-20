@@ -23,10 +23,15 @@ class Ingreso_Info : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ingreso_info)
+     // Trae la año actual y el mes actual
+        val fecha_act = SimpleDateFormat("yyyy")
+        val fecha_a = fecha_act.format(Date())
+        val fecha_actual = fecha_a.toString()
 
-        val sdf = SimpleDateFormat("yyyy")
-        val currentDate = sdf.format(Date())
-        val fecha_actual = currentDate.toInt()
+        val mes_act = SimpleDateFormat("M")
+        val mes_a= mes_act.format(Date())
+        val mes_actual = mes_a.toString()
+
 
 
 
@@ -54,7 +59,7 @@ class Ingreso_Info : AppCompatActivity() {
                 val desecho_peligrosos = peligrosos.text.toString()
                 val desecho_otros = otros.text.toString()
 
-                if (desecho_inertes.isEmpty() || desecho_peligrosos.isEmpty() || desecho_urbanos.isEmpty() || desecho_otros.isEmpty()|| id_gmail.isEmpty() || id_fecha.isEmpty() || id_mes.isEmpty()) {
+                if (desecho_inertes.isEmpty() || desecho_peligrosos.isEmpty() || desecho_urbanos.isEmpty() || desecho_otros.isEmpty()) {
                     Toast.makeText(baseContext, "Campos Vacios ", Toast.LENGTH_SHORT).show()
                 } else {
 
@@ -65,12 +70,8 @@ class Ingreso_Info : AppCompatActivity() {
                         "desechos_peligrosos" to desecho_peligrosos.toInt(),
                         "desechos_otros" to desecho_otros.toInt(),
                     )
-                   /* desechos_info.add(Pair("inertes",desecho_inertes.toInt()))
-                    desechos_info.add(Pair("urbanos",desecho_urbanos.toInt()))
-                    desechos_info.add(Pair("peligrosos",desecho_peligrosos.toInt()))
-                    desechos_info.add(Pair("otros",desecho_otros.toInt()))
-                    i++*/
-                    db.collection("desechos").document(id_gmail).collection(id_fecha).document(id_mes).set(desechos)
+
+                    db.collection("desechos").document(id_gmail).collection(fecha_actual).document(mes_actual).set(desechos)
                         .addOnSuccessListener {
                             Log.d(
                                 ContentValues.TAG,

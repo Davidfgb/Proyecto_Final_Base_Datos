@@ -22,6 +22,17 @@ class Visualizar_Desechos : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_visualizar_desechos)
 
+
+        val fecha_act = SimpleDateFormat("yyyy")
+        val fecha_a = fecha_act.format(Date())
+        val fecha_actual = fecha_a.toInt()
+
+        val mes_act = SimpleDateFormat("M")
+        val mes_a= mes_act.format(Date())
+        val mes_actual = mes_a.toInt()
+
+
+
         val gmail = findViewById<TextView>(R.id.editText_visu_gmail)
         val boton_mostrar = findViewById<Button>(R.id.bn_visu_mostrar)
         val volver = findViewById<Button>(R.id.bn_visu_volver)
@@ -37,7 +48,7 @@ class Visualizar_Desechos : AppCompatActivity() {
         boton_mostrar.setOnClickListener {
             try {
                // db.collection("desechos").document(id_gmail).collection(id_fecha).document(id_mes).set(desechos)
-                val docRef = db.collection("desechos").document(gmail.text.toString()).collection(fecha.text.toString()).document(mes.text.toString())
+                val docRef = db.collection("desechos").document(gmail.text.toString()).collection(fecha_actual.toString()).document(mes_actual.toString())
                 docRef.get()
                     .addOnSuccessListener { document ->
                         if (document != null) {
