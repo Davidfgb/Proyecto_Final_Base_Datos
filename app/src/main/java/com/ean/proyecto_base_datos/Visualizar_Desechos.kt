@@ -34,12 +34,10 @@ class Visualizar_Desechos : AppCompatActivity() {
 
         val mostrar_datos = findViewById<TextView>(R.id.text_visu_motrar_datos)
 
-
-
         boton_mostrar.setOnClickListener {
             try {
                // db.collection("desechos").document(id_gmail).collection(id_fecha).document(id_mes).set(desechos)
-                val docRef = db.collection("davidfgalvis8@gmail.com").document("11")
+                val docRef = db.collection("desechos").document(gmail.text.toString()).collection(fecha.text.toString()).document(mes.text.toString())
                 docRef.get()
                     .addOnSuccessListener { document ->
                         if (document != null) {

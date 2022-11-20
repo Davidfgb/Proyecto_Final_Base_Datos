@@ -54,41 +54,40 @@ class Ingreso_Info : AppCompatActivity() {
                 val desecho_peligrosos = peligrosos.text.toString()
                 val desecho_otros = otros.text.toString()
 
-                if (desecho_inertes.isEmpty() || desecho_peligrosos.isEmpty() || desecho_urbanos.isEmpty() || desecho_otros.isEmpty()) {
-                    Toast.makeText(baseContext, "Campos vacios", Toast.LENGTH_SHORT).show()
+                if (desecho_inertes.isEmpty() || desecho_peligrosos.isEmpty() || desecho_urbanos.isEmpty() || desecho_otros.isEmpty()|| id_gmail.isEmpty() || id_fecha.isEmpty() || id_mes.isEmpty()) {
+                    Toast.makeText(baseContext, "Campos Vacios ", Toast.LENGTH_SHORT).show()
                 } else {
-                    if (id_mes > "12" || id_mes < "1") {
-                        Toast.makeText(baseContext, "Mes invalido", Toast.LENGTH_SHORT).show()
-                    } else {
-                        val desechos = hashMapOf(
-                            //mes_desecho to desechos_list,
-                            id_mes to desechos_info,
-                        )
-                        desechos_info.add(Pair("inertes", desecho_inertes.toInt()))
-                        desechos_info.add(Pair("urbanos", desecho_urbanos.toInt()))
-                        desechos_info.add(Pair("peligrosos", desecho_peligrosos.toInt()))
-                        desechos_info.add(Pair("otros", desecho_otros.toInt()))
-                        i++
-                        db.collection(id_gmail).document(id_fecha).set(desechos)
-                            .addOnSuccessListener {
-                                Log.d(
-                                    ContentValues.TAG,
-                                    "DocumentSnapshot successfully written!"
-                                )
-                            }
-                            .addOnFailureListener { e ->
-                                Log.w(
-                                    ContentValues.TAG,
-                                    "Error writing document",
-                                    e
-                                )
-                            }
-                        Toast.makeText(baseContext, "Informacion Registarda", Toast.LENGTH_SHORT)
-                            .show()
-                    }
+
+                    val desechos = hashMapOf(
+                        //mes_desecho to desechos_list,
+                        "desechos_inertes" to desecho_inertes.toInt(),
+                        "desechos_urbanos" to desecho_urbanos.toInt(),
+                        "desechos_peligrosos" to desecho_peligrosos.toInt(),
+                        "desechos_otros" to desecho_otros.toInt(),
+                    )
+                   /* desechos_info.add(Pair("inertes",desecho_inertes.toInt()))
+                    desechos_info.add(Pair("urbanos",desecho_urbanos.toInt()))
+                    desechos_info.add(Pair("peligrosos",desecho_peligrosos.toInt()))
+                    desechos_info.add(Pair("otros",desecho_otros.toInt()))
+                    i++*/
+                    db.collection("desechos").document(id_gmail).collection(id_fecha).document(id_mes).set(desechos)
+                        .addOnSuccessListener {
+                            Log.d(
+                                ContentValues.TAG,
+                                "DocumentSnapshot successfully written!"
+                            )
+                        }
+                        .addOnFailureListener { e ->
+                            Log.w(
+                                ContentValues.TAG,
+                                "Error writing document",
+                                e
+                            )
+                        }
+                    Toast.makeText(baseContext, "Informacion Registarda", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Exception) {
-                Toast.makeText(baseContext, "No se pudo regsitrar la informacion", Toast.LENGTH_SHORT)
+
             }
         }
         boton_volver.setOnClickListener {

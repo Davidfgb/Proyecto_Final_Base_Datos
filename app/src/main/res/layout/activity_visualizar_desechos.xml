@@ -74,7 +74,7 @@
             android:backgroundTint="#03A9F4"
             android:ems="10"
             android:hint="Correo"
-            android:inputType="textEmailAddress"
+            android:inputType="textPersonName"
             android:textColor="#03A9F4"
             android:textColorHint="#03A9F4" />
 
