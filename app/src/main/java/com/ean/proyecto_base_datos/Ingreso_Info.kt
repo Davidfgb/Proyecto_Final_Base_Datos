@@ -33,11 +33,7 @@ class Ingreso_Info : AppCompatActivity() {
         val mes_actual = mes_a.toString()
 
 
-
-
         val gmail = findViewById<TextView>(R.id.editText_ingr_info_gmail)
-        val fecha = findViewById<TextView>(R.id.editText_ingr_fecha)
-        val mes = findViewById<TextView>(R.id.editText_ingr_mes)
         val inertes = findViewById<TextView>(R.id.editTex_ingre_info_inertes)
         val urbanos = findViewById<TextView>(R.id.editText_ingr_info_urbanos)
         val peligrosos = findViewById<TextView>(R.id.editText_ingr_info_peligrosos)
@@ -52,40 +48,55 @@ class Ingreso_Info : AppCompatActivity() {
             try {
                 var i = 0
                 val id_gmail = gmail.text.toString()
-                val id_fecha = fecha.text.toString()
-                val id_mes = mes.text.toString()
                 val desecho_inertes = inertes.text.toString()
                 val desecho_urbanos = urbanos.text.toString()
                 val desecho_peligrosos = peligrosos.text.toString()
                 val desecho_otros = otros.text.toString()
-
                 if (desecho_inertes.isEmpty() || desecho_peligrosos.isEmpty() || desecho_urbanos.isEmpty() || desecho_otros.isEmpty()) {
                     Toast.makeText(baseContext, "Campos Vacios ", Toast.LENGTH_SHORT).show()
-                } else {
+                }else {
+                    val docRef = db.collection("desechos").document(gmail.text.toString())
+                        .collection(fecha_actual.toString()).document(mes_actual.toString())
+                    docRef.get()
+                        .addOnSuccessListener { document ->
+                            if (document.exists()) {
+                                Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
+                                Toast.makeText(
+                                    this,
+                                    "Ya se ingreso informacion para este mes",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            } else {
+                                val desechos = hashMapOf(
+                                    //mes_desecho to desechos_list,
+                                    "desechos_inertes" to desecho_inertes.toInt(),
+                                    "desechos_urbanos" to desecho_urbanos.toInt(),
+                                    "desechos_peligrosos" to desecho_peligrosos.toInt(),
+                                    "desechos_otros" to desecho_otros.toInt(),
+                                )
 
-                    val desechos = hashMapOf(
-                        //mes_desecho to desechos_list,
-                        "desechos_inertes" to desecho_inertes.toInt(),
-                        "desechos_urbanos" to desecho_urbanos.toInt(),
-                        "desechos_peligrosos" to desecho_peligrosos.toInt(),
-                        "desechos_otros" to desecho_otros.toInt(),
-                    )
+                                db.collection("desechos").document(id_gmail).collection(fecha_actual).document(mes_actual).set(desechos)
+                                    .addOnSuccessListener {
+                                        Log.d(
+                                            ContentValues.TAG,
+                                            "DocumentSnapshot successfully written!"
+                                        )
+                                    }
+                                    .addOnFailureListener { e ->
+                                        Log.w(
+                                            ContentValues.TAG,
+                                            "Error writing document",
+                                            e
+                                        )
+                                    }
+                                Toast.makeText(baseContext, "Informacion Registarda", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                        .addOnFailureListener { exception ->
+                            Log.d(ContentValues.TAG, "get failed with ", exception)
+                        }
 
-                    db.collection("desechos").document(id_gmail).collection(fecha_actual).document(mes_actual).set(desechos)
-                        .addOnSuccessListener {
-                            Log.d(
-                                ContentValues.TAG,
-                                "DocumentSnapshot successfully written!"
-                            )
-                        }
-                        .addOnFailureListener { e ->
-                            Log.w(
-                                ContentValues.TAG,
-                                "Error writing document",
-                                e
-                            )
-                        }
-                    Toast.makeText(baseContext, "Informacion Registarda", Toast.LENGTH_SHORT).show()
+
                 }
             } catch (e: Exception) {
 

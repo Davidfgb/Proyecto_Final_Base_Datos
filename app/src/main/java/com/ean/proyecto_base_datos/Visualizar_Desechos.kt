@@ -2,6 +2,7 @@ package com.ean.proyecto_base_datos
 
 import android.content.ContentValues
 import android.content.ContentValues.TAG
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -36,12 +37,8 @@ class Visualizar_Desechos : AppCompatActivity() {
         val gmail = findViewById<TextView>(R.id.editText_visu_gmail)
         val boton_mostrar = findViewById<Button>(R.id.bn_visu_mostrar)
         val volver = findViewById<Button>(R.id.bn_visu_volver)
-        val fecha = findViewById<TextView>(R.id.editText_visu_fecha)
-        val mes = findViewById<TextView>(R.id.editText_visu_mes)
-
         val gmail_id = gmail.text.toString()
-        val fecha_id = fecha.text.toString()
-        val mes_id = mes.text.toString()
+
 
         val mostrar_datos = findViewById<TextView>(R.id.text_visu_motrar_datos)
 
@@ -65,7 +62,12 @@ class Visualizar_Desechos : AppCompatActivity() {
                 Toast.makeText(baseContext, "No se pudo mostrar datos", Toast.LENGTH_SHORT).show()
             }
         }
+        volver.setOnClickListener {
+            val intent = Intent(this,Pagina_Principal::class.java)
+            startActivity(intent)
         }
+
+    }
 
 
 

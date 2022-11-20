@@ -88,13 +88,8 @@ class Registrase : AppCompatActivity() {
                 }
             }
             catch (e:Exception){
-
                 Toast.makeText(baseContext, "Los campos estan vacios", Toast.LENGTH_SHORT).show()
-
             }
         }
-
-
     }
-
 }

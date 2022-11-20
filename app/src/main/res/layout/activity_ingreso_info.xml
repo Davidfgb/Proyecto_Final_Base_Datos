@@ -48,7 +48,6 @@
                 android:id="@+id/textView10"
                 android:layout_width="match_parent"
                 android:layout_height="105dp"
-                android:text="Por favor ingresar el año y el mes en numero"
                 android:textColor="#03A9F4"
                 android:textSize="20sp" />
         </LinearLayout>
@@ -61,28 +60,6 @@
             android:ems="10"
             android:hint="Correo"
             android:inputType="textPersonName"
-            android:textColor="#03A9F4"
-            android:textColorHint="#03A9F4" />
-
-        <EditText
-            android:id="@+id/editText_ingr_fecha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#03A9F4"
-            android:ems="10"
-            android:hint="Año"
-            android:inputType="number"
-            android:textColor="#03A9F4"
-            android:textColorHint="#03A9F4" />
-
-        <EditText
-            android:id="@+id/editText_ingr_mes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#03A9F4"
-            android:ems="10"
-            android:hint="Mes"
-            android:inputType="number"
             android:textColor="#03A9F4"
             android:textColorHint="#03A9F4" />
 
@@ -132,7 +109,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="64dp"
             android:orientation="horizontal">
 
         </LinearLayout>
@@ -158,14 +135,6 @@
                 android:backgroundTint="#03A9F4"
                 android:text="Volver" />
         </LinearLayout>
-
-        <EditText
-            android:id="@+id/editTextTextPersonName2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

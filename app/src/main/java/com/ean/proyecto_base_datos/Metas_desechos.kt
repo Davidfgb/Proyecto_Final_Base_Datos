@@ -47,7 +47,6 @@ class Metas_desechos : AppCompatActivity() {
                 if (desecho_inertes.isEmpty() || desecho_peligrosos.isEmpty() || desecho_urbanos.isEmpty() || desecho_otros.isEmpty()) {
                     Toast.makeText(baseContext, "Campos vacios", Toast.LENGTH_SHORT).show()
                 } else {
-
                     val desechos = hashMapOf(
                          currentDate to desechos_list,
                     )
@@ -66,8 +65,6 @@ class Metas_desechos : AppCompatActivity() {
                             )
                         }
                     Toast.makeText(baseContext, "Informacion Registarda", Toast.LENGTH_SHORT).show()
-
-
                 }
             } catch (e: Exception) {
 

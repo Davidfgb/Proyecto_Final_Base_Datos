@@ -49,12 +49,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="11dp"
             android:orientation="horizontal"></LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="57dp"
             android:orientation="horizontal">
 
             <TextView
@@ -62,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Ingrese el año y el mes de los datos que desea visualizar"
+                android:text="Por favor ingrese su correo"
                 android:textColor="#03A9F4"
                 android:textSize="20sp" />
         </LinearLayout>
@@ -74,28 +74,6 @@
             android:backgroundTint="#03A9F4"
             android:ems="10"
             android:hint="Correo"
-            android:inputType="textPersonName"
-            android:textColor="#03A9F4"
-            android:textColorHint="#03A9F4" />
-
-        <EditText
-            android:id="@+id/editText_visu_fecha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#03A9F4"
-            android:ems="10"
-            android:hint="Año"
-            android:inputType="textPersonName"
-            android:textColor="#03A9F4"
-            android:textColorHint="#03A9F4" />
-
-        <EditText
-            android:id="@+id/editText_visu_mes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#03A9F4"
-            android:ems="10"
-            android:hint="Mes"
             android:inputType="textPersonName"
             android:textColor="#03A9F4"
             android:textColorHint="#03A9F4" />
@@ -126,13 +104,6 @@
                 android:backgroundTint="#03A9F4"
                 android:text="Volver" />
         </LinearLayout>
-
-        <EditText
-            android:id="@+id/editTextTextEmailAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textEmailAddress" />
 
     </LinearLayout>
 
