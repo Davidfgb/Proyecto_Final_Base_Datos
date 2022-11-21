@@ -53,7 +53,7 @@ class Pagina_Principal : AppCompatActivity() {
         val boton_visualizar_desechos = findViewById<Button>(R.id.bn_pg_vizual_desechos)
         boton_visualizar_desechos.setOnClickListener {
             val intent = Intent(this,Visualizar_Desechos::class.java)
-           // intent.putExtra("correo", correo)
+            // intent.putExtra("correo", correo)
             startActivity(intent)
         }
         val boton_ingresar_Metas = findViewById<Button>(R.id.bn_pg_metas)
